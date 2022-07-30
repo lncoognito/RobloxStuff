@@ -1,7 +1,7 @@
 --[[
     Authors: Incognito#0666
     Desc: A simple lyric bot
-    Date: 7/30/2022 4:48 AM [Dont ask why im awake at 4:48 am, ty.]
+    Date: 7/30/2022 4:48 AM [Dont ask why im awake at 4:48 am, ty.] [https://i.imgur.com/EyNqPix.png]
 ]]
 
 local Remotes								    = require(game:GetService("ReplicatedStorage").Remotes)
