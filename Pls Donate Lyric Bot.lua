@@ -1,13 +1,7 @@
---[[
-    Authors: Incognito#0666
-    Desc: A simple lyric bot
-    Date: 7/30/2022 4:48 AM [Dont ask why im awake at 4:48 am, ty.] [https://i.imgur.com/EyNqPix.png]
-]]
+local remotes = require(game:GetService("ReplicatedStorage").Remotes);
+local setbooth = Remotes.Event("SetBoothText");
 
-local Remotes								    = require(game:GetService("ReplicatedStorage").Remotes)
-local SetBoothRemote		 		            = Remotes.Event("SetBoothText")
-
-local TheSongLul = [[
+local song = [[
 We're no strangers to love
 You know the rules and so do I (do I)
 A full commitment's what I'm thinking of
@@ -64,9 +58,10 @@ Never gonna say goodbye
 Never gonna tell a lie and hurt you
 ]]
 
-local CooldownBetweenEachSentence = 3 -- dont go lower than 2.5
+local cooldown = 3 -- dont go lower than 2.5
 
-for i, v in next, TheSongLul:split("\n") do
-    SetBoothRemote:FireServer(v, "booth")
-    wait(CooldownBetweenEachSentence)
+
+for _, v in next, song:split("\n") do
+    setbooth:FireServer(v, "booth");
+    task.wait(cooldown);
 end
