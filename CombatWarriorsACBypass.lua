@@ -22,4 +22,15 @@ for _, Value in next, getgc(true) do
     end
 end
 
--- 2022/25/12
+AntiKick = hookmetamethod(game, "__namecall", function(Self, ...)
+    local Method    = tostring(string.lower(getnamecallmethod()))
+    local Arguments = {...}
+
+    if Method == "kick" then        
+        return task.wait(9e9)
+    end
+    
+    return AntiKick(Self, table.unpack(Arguments))
+end)
+
+-- 2022/28/12
