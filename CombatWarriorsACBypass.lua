@@ -17,20 +17,11 @@ for _, Value in next, getgc(true) do
         end)
     end
 
-    if type(Value) == "table" and rawget(Value, "Remote") then
-        Value.Remote.Name = Value.Name
-    end
+    -- uncomment the if statement below if u want the remotes to have their original name. [Use antikick on inf yield]
+
+    --if type(Value) == "table" and rawget(Value, "Remote") then
+        --Value.Remote.Name = Value.Name
+    --end
 end
-
-AntiKick = hookmetamethod(game, "__namecall", function(Self, ...)
-    local Method    = tostring(string.lower(getnamecallmethod()))
-    local Arguments = {...}
-
-    if Method == "kick" then        
-        return task.wait(9e9)
-    end
-    
-    return AntiKick(Self, table.unpack(Arguments))
-end)
 
 -- 2022/28/12
